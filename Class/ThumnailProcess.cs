@@ -14,7 +14,6 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Windows;
-using Newtonsoft.Json;
 using System.Diagnostics;
 using Microsoft.WindowsAPICodePack.Shell;
 
@@ -28,9 +27,7 @@ namespace DwgLib.Class
         Editor ed = null;
         List<string> Files = new List<string>();
         int DirectoryCount = 1;
-        public ThumnailProcess()
-        {
-        }
+        public ThumnailProcess() { }
         public int Processing(string file)
         {
             if (!Directory.Exists(file))
@@ -52,7 +49,7 @@ namespace DwgLib.Class
             }
         }
         //root为一级目录
-        private void SearchDWGFile(string root)
+        private void SearchFileByPrefix(string root,string prefix)
         {
 
             string[] strArr = Directory.GetDirectories(root);
@@ -60,7 +57,7 @@ namespace DwgLib.Class
             List<string> _files = new List<string>() { };
             for (int i = 0; i < files.Length; i++)
             {
-                if (Path.GetExtension(files[i]).ToLower() == ".dwg")
+                if (Path.GetExtension(files[i]).ToLower() == prefix)
                 {
                     _files.Add(files[i]);
                 }
@@ -68,7 +65,7 @@ namespace DwgLib.Class
             this.Files.AddRange(_files);
             for (int i = 0; i < strArr.Length; i++)
             {
-                SearchDWGFile(strArr[i]);
+                SearchFileByPrefix(strArr[i], prefix);
             }
         }
         public List<string> GetAllDwgFilesByPath(string root)
@@ -83,7 +80,7 @@ namespace DwgLib.Class
             {
                 MessageBox.Show("搜索路径过长，请减少文件路径长度");
             }
-            this.SearchDWGFile(root);
+            this.SearchFileByPrefix(root, ".dwg");
             return this.Files;
         }
         private bool GernateDwgThumnail(string path)
