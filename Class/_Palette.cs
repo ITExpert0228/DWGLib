@@ -16,7 +16,6 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Windows;
-using Newtonsoft.Json;
 using System.Diagnostics;
 using Microsoft.WindowsAPICodePack.Shell;
 
@@ -164,11 +163,11 @@ namespace DwgLib.Class
                 return libraryPath;
             }
         }
-        private static Database GetDwgFile(string path)
+        private static Database GetFileByPrefix(string path, string prefix)
         {
 
             Database db = new Database(false, false);
-            if (Path.GetExtension(path).ToLower() == ".dwg")
+            if (Path.GetExtension(path).ToLower() == prefix)
             {
                 try
                 {

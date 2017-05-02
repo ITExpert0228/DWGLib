@@ -15,7 +15,6 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.Geometry;
 using Autodesk.AutoCAD.Windows;
-using Newtonsoft.Json;
 using System.Diagnostics;
 using Microsoft.WindowsAPICodePack.Shell;
 
