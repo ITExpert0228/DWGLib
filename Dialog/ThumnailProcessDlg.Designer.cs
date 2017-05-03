@@ -44,7 +44,7 @@
             this.FileBrowser.Location = new System.Drawing.Point(26, 42);
             this.FileBrowser.Name = "FileBrowser";
             this.FileBrowser.Size = new System.Drawing.Size(88, 31);
-            this.FileBrowser.TabIndex = 7;
+            this.FileBrowser.TabIndex = 0;
             this.FileBrowser.Text = "选择文件夹";
             this.FileBrowser.UseVisualStyleBackColor = true;
             this.FileBrowser.Click += new System.EventHandler(this.Folder_Browser);
@@ -55,7 +55,7 @@
             this.startProcess.Location = new System.Drawing.Point(133, 41);
             this.startProcess.Name = "startProcess";
             this.startProcess.Size = new System.Drawing.Size(73, 32);
-            this.startProcess.TabIndex = 12;
+            this.startProcess.TabIndex = 1;
             this.startProcess.Text = "处理";
             this.startProcess.UseVisualStyleBackColor = true;
             this.startProcess.Click += new System.EventHandler(this.Start_Process);
@@ -67,7 +67,7 @@
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(475, 23);
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar.TabIndex = 13;
+            this.progressBar.TabIndex = 4;
             // 
             // RootPath
             // 
@@ -80,7 +80,7 @@
             this.RootPath.Location = new System.Drawing.Point(23, 86);
             this.RootPath.Name = "RootPath";
             this.RootPath.Size = new System.Drawing.Size(425, 37);
-            this.RootPath.TabIndex = 14;
+            this.RootPath.TabIndex = 2;
             this.RootPath.Text = "这里显示文件处理根目录";
             this.RootPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -92,7 +92,7 @@
             this.CurrentProcessLabel.Location = new System.Drawing.Point(23, 171);
             this.CurrentProcessLabel.Name = "CurrentProcessLabel";
             this.CurrentProcessLabel.Size = new System.Drawing.Size(478, 41);
-            this.CurrentProcessLabel.TabIndex = 15;
+            this.CurrentProcessLabel.TabIndex = 5;
             this.CurrentProcessLabel.Text = "这里显示当前处理文件";
             // 
             // bgWorker
@@ -107,10 +107,11 @@
             // 
             this._processPer.AutoSize = true;
             this._processPer.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._processPer.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this._processPer.Location = new System.Drawing.Point(475, 106);
             this._processPer.Name = "_processPer";
             this._processPer.Size = new System.Drawing.Size(26, 17);
-            this._processPer.TabIndex = 16;
+            this._processPer.TabIndex = 3;
             this._processPer.Text = "0%";
             this._processPer.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -132,9 +133,8 @@
             this.Name = "ThumnailProcessDlg";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "缩略图生成工具";
+            this.Text = "缩略图处理";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dialog_Close);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ThumnailProcessDlg_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

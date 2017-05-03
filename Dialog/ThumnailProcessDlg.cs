@@ -65,9 +65,9 @@ namespace DwgLib.Dialog
             {
                 this.CurrentProcess = fileList[i];
                 if (thumnailProcess.Processing(fileList[i]) == 1){
-                    this.StreamWriter.WriteLine(fileList[i] + " 处理成功");
+                    this.StreamWriter.WriteLine(fileList[i] + ": 处理成功");
                 }else if(thumnailProcess.Processing(fileList[i]) == 0) { 
-                    this.StreamWriter.WriteLine(fileList[i] + " 处理失败," + "无法获取缩略图");
+                    this.StreamWriter.WriteLine(fileList[i] + ": 处理失败," + "无法获取缩略图");
                 }
                 this.bgWorker.ReportProgress(i);
                 System.Threading.Thread.Sleep(500);
@@ -97,12 +97,7 @@ namespace DwgLib.Dialog
             this.StreamWriter.Close();
             this.StreamWriter.Dispose();
             this.isProcessed = false;
-            MessageBox.Show("处理完成");
-        }
-
-        private void ThumnailProcessDlg_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
+            MessageBox.Show("处理完成,处理结果请查看文件：" + this.filePath);
         }
     }
 }
